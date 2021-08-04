@@ -1,0 +1,48 @@
+<mvc:View
+    controllerName="com.vc01.off.zvc01off.controller.main"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    xmlns="sap.m"
+>
+	<Shell id="shell">
+		<App id="app">
+			<pages>
+				<Page title="{i18n>Crear actividad de ventas}">
+		
+					<content>
+					<Label text="Organizacion de Ventas" labelFor="multiInput"/>
+					<Input id="vkorg" showValueHelp="true" valueHelpRequest="getBukrs"/>
+					<Label text="Documento" labelFor="multiInput"/>
+					<Input id="vbeln" showValueHelp="true" valueHelpRequest="getVbeln"/>
+					<Label text="Canal de Distribucion" labelFor="multiInput"/>
+					<Input id="vtweg" showValueHelp="true" valueHelpRequest="getVtweg"/>
+					<Label text="Sector" labelFor="multiInput"/>
+					<Input id="spart" showValueHelp="true" valueHelpRequest="getSpart"/> 
+					<Label text="Clase de contacto" labelFor="multiInput"/>
+					<Input id="Ktaar" showValueHelp="true" valueHelpRequest="getKtaar"/> 
+					<Label text="Oficina de Ventas" labelFor="multiInput"/>
+					<Input id="Vkbur" showValueHelp="true" valueHelpRequest="getVkbur"/> 
+					<Label text="Grupo de vendedores" labelFor="multiInput"/>
+					<Input id="Vkgrp" showValueHelp="true" valueHelpRequest="getVkgrp"/>
+					<Label text="Descripcion" labelFor="text"/> 
+					 <Input id="Ktext"  />
+					<DateTimePicker
+						id="Ktabg"
+						placeholder="Inicio contacto (fecha - Hora)"
+						valueFormat="yyyy-MM-dd-HH-mm-ss"			
+						class="sapUiSmallMarginBottom"/>		
+						<DateTimePicker
+						id="Ktaen"
+						placeholder="Fin contacto (fecha - Hora)"
+						valueFormat="yyyy-MM-dd-HH-mm-ss"			
+						class="sapUiSmallMarginBottom"/>			  
+					<Button type="Accept" press="sincronizar" text="Sincronizar SAP" />
+					<Button type="Accept" press="guardar" text="Guardar" />
+					<Button type="Accept" press="clear" text="Limpiar Campos" />
+					<Button type="Accept" press="onEnviar" text="Enviar a SAP" />
+					</content>
+				</Page>
+			</pages>
+		</App>
+	</Shell>
+</mvc:View>

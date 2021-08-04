@@ -1,0 +1,22 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<SelectDialog
+		title="Documento"
+		class="sapUiPopupWithPadding"
+		items="{data>/DocVtasCont}"
+		search="busVbeln"
+		liveChange="busVbeln"
+		confirm="busVbelnClose"
+		cancel="busVbelnClose">
+		<StandardListItem
+			iconDensityAware="false"
+			iconInset="false"			
+			title="{data>Vbeln}"
+			info="{data>Ernam} - {data>Erdat} - {data>Ktaar} -
+			{data>Ktabg} - {data>Vkorg} - {data>Vtweg} - {data>Spart} - 
+			{data>Vkbur} - {data>Vkgrp} - {data>Ktagr} - {data>Ktast} - 
+			{data>Ktaer} - {data>Ktaeb} - {data>Ktext} - {data>Kunnr} - {data>Kunde} - {data>Parvw}"			
+			type="Active" />
+	</SelectDialog>
+</core:FragmentDefinition>

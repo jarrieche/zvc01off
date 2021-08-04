@@ -1,0 +1,19 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<SelectDialog
+		title="Oficina de ventas"
+		class="sapUiPopupWithPadding"
+		items="{data>/HTvbur}"
+		search="busVkbur"
+		liveChange="busVkbur"
+		confirm="busVkburClose"
+		cancel="busVkburClose">
+		<StandardListItem
+			iconDensityAware="false"
+			iconInset="false"			
+			title="{data>Vkbur}"
+			info="{data>Bezei}"			
+			type="Active" />
+	</SelectDialog>
+</core:FragmentDefinition>

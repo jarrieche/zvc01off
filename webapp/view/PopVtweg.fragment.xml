@@ -1,0 +1,19 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<SelectDialog
+		title="Canal de Distribucion"
+		class="sapUiPopupWithPadding"
+		items="{data>/CanalDis}"
+		search="busVtweg"
+		liveChange="busVtweg"
+		confirm="busVtwegClose"
+		cancel="busVtwegClose">
+		<StandardListItem
+			iconDensityAware="false"
+			iconInset="false"			
+			title="{data>Vtweg}"		
+			info="{data>Vtext}"	
+			type="Active" />
+	</SelectDialog>
+</core:FragmentDefinition>
