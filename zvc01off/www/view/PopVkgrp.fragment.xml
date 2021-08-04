@@ -1,0 +1,19 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<SelectDialog
+		title="Grupo de vendedores"
+		class="sapUiPopupWithPadding"
+		items="{data>/HTvkgr}"
+		search="busVkgrp"
+		liveChange="busVkgrp"
+		confirm="busVkgrpClose"
+		cancel="busVkgrpClose">
+		<StandardListItem
+			iconDensityAware="false"
+			iconInset="false"			
+			title="{data>Vkgrp}"
+			info="{data>Bezei}"			
+			type="Active" />
+	</SelectDialog>
+</core:FragmentDefinition>

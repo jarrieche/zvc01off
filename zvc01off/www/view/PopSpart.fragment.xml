@@ -1,0 +1,19 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<SelectDialog
+		title="Sector"
+		class="sapUiPopupWithPadding"
+		items="{data>/Sector}"
+		search="busSpart"
+		liveChange="busSpart"
+		confirm="busSpartClose"
+		cancel="busSpartClose">
+		<StandardListItem
+			iconDensityAware="false"
+			iconInset="false"			
+			title="{data>Spart}"	
+			info="{data>Vtext}"		
+			type="Active" />
+	</SelectDialog>
+</core:FragmentDefinition>

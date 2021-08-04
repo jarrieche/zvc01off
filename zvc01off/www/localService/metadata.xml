@@ -1,0 +1,355 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="Z_OD_FIORI_SD_SRV" xml:lang="es" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <EntityType Name="OrgSales_SH" sap:label="Ayuda de Busqueda Org de Ventas" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Vkorg"/>
+                </Key>
+                <Property Name="Vkorg" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Organiz.ventas" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Vtext" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Denominación" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="FBL5n" sap:label="Listado  Partidas Abiertas Deudores FBL5N" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Kunnr"/>
+                    <PropertyRef Name="Bukrs"/>
+                </Key>
+                <Property Name="Kunnr" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Cliente" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="Name1" Type="Edm.String" Nullable="false" MaxLength="35" sap:unicode="false" sap:label="Nombre" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Name2" Type="Edm.String" Nullable="false" MaxLength="35" sap:unicode="false" sap:label="Nombre 2" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Vbeln" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Factura" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Belnr" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Nº documento" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Budat" Type="Edm.String" MaxLength="10" sap:unicode="false" sap:label="Fecha contab." sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="Dzahld" Type="Edm.String" MaxLength="10" sap:unicode="false" sap:label="Día de pago" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Dvenc" Type="Edm.String" MaxLength="10" sap:unicode="false" sap:label="Demoras tras vencimiento neto" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Dzbd1t" Type="Edm.Decimal" Nullable="false" Precision="3" Scale="0" sap:unicode="false" sap:label="Días 1" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Dmbe2" Type="Edm.Decimal" Nullable="false" Precision="14" Scale="3" sap:unicode="false" sap:label="Impte.ML2" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Bukrs" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Sociedad" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="Tpart" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Tipo de Reporte Partidas" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="Bldat" Type="Edm.String" MaxLength="10" sap:unicode="false" sap:label="Fecha clave" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="Augdt" Type="Edm.String" MaxLength="10" sap:unicode="false" sap:label="Compensación" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+            </EntityType>
+            <EntityType Name="VC01n" sap:label="Contaco VC01n" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Vbeln"/>
+                </Key>
+                <Property Name="Vbeln" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Número contacto"/>
+                <Property Name="Vkorg" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Organiz.ventas" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="Vtweg" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Canal distrib." sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="Spart" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Sector" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="Ktaar" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Clase contacto" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="Ktagr" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Notivo contacto" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="Kunnr" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Interlocutor" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Parvs" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Func.interloc." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Ktabg" Type="Edm.String" MaxLength="10" sap:unicode="false" sap:label="Inicio contacto" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Ktabt" Type="Edm.String" MaxLength="8" sap:unicode="false" sap:label="Inicio" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Ktaen" Type="Edm.String" MaxLength="10" sap:unicode="false" sap:label="Fin contacto" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Ktaet" Type="Edm.String" MaxLength="8" sap:unicode="false" sap:label="Fin contacto" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Ktext" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Comentario" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Ktast" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Status contacto" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Ktaer" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Result.contacto" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Ktaeb" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="JustificResult" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Vkbur" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Oficina ventas" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Vkgrp" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Gr.vendedores" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Soldto" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Empresa" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Percto" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Persona Contacto" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Respto" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Empleaso responsable" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="VC05" sap:label="Monitor de ventas VC05" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Kunnr"/>
+                </Key>
+                <Property Name="Kunnr" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Cliente" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="Name" Type="Edm.String" Nullable="false" MaxLength="256" sap:unicode="false" sap:label="Nombre de cliente" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Vkorg" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Organiz.ventas" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="Ktabg" Type="Edm.String" MaxLength="10" sap:unicode="false" sap:label="Fecha inicio contacto" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="Ktagr_Txt_Vbka" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Motivo" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Erdat" Type="Edm.String" MaxLength="10" sap:unicode="false" sap:label="Creado el" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Erzet" Type="Edm.String" MaxLength="8" sap:unicode="false" sap:label="Hora" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Ktext" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Comentario" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Zpers" Type="Edm.String" Nullable="false" MaxLength="8" sap:unicode="false" sap:label="Persona respons" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Cname" Type="Edm.String" Nullable="false" MaxLength="80" sap:unicode="false" sap:label="Representante ventas" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Vbeln" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Documento venta" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Ktast_Txt_Vbka" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Estatus contacto" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="VF05N" sap:label="Lista de Facturas" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Kunrg"/>
+                    <PropertyRef Name="Vbeln"/>
+                </Key>
+                <Property Name="Kunrg" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Pagador" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="Fkdat" Type="Edm.String" MaxLength="10" sap:unicode="false" sap:label="Fecha factura" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="Vbeln" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Factura" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="Rfbsk" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Status contab." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Netwr" Type="Edm.Decimal" Nullable="false" Precision="16" Scale="3" sap:unicode="false" sap:label="Valor neto" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Waerk" Type="Edm.String" Nullable="false" MaxLength="5" sap:unicode="false" sap:label="Moneda doc." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" sap:semantics="currency-code"/>
+                <Property Name="Fkart" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Clase factura" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="Kunag" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Solicitante" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="Vkorg" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Organiz.ventas" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="Vtweg" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Canal distrib." sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="Ffact" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Filtro tipo de factura" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+            </EntityType>
+            <EntityType Name="VA05" sap:label="Lista de Pedidos" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="SdDoc"/>
+                    <PropertyRef Name="SoldTo"/>
+                </Key>
+                <Property Name="SdDoc" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Doc.comercial" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ItmNumber" Type="Edm.String" Nullable="false" MaxLength="6" sap:unicode="false" sap:label="Posición" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Material" Type="Edm.String" Nullable="false" MaxLength="18" sap:unicode="false" sap:label="Material" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="ShortText" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Denominación" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="DocType" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Cl.doc.ventas" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="DocDate" Type="Edm.String" MaxLength="10" sap:unicode="false" sap:label="Fecha documento" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="ReqQty" Type="Edm.Decimal" Nullable="false" Precision="15" Scale="3" sap:unicode="false" sap:label="Ctd.de pedido" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ReqDate" Type="Edm.String" MaxLength="10" sap:unicode="false" sap:label="Fe.pref.entr." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="PurchNo" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Nº ped.cliente" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="SoldTo" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Solicitante" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="Name" Type="Edm.String" Nullable="false" MaxLength="35" sap:unicode="false" sap:label="Nombre" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="CondPUnt" Type="Edm.Decimal" Nullable="false" Precision="5" Scale="0" sap:unicode="false" sap:label="Cantidad base" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="CondUnit" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Unidad medida" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" sap:semantics="unit-of-measure"/>
+                <Property Name="Division" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Sector" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="DocStatus" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Status" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="SalesOff" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Oficina ventas" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="SalesOrg" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Organiz.ventas" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="DistrChan" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Canal distrib." sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+            </EntityType>
+            <EntityType Name="DocVtas_SH" sap:label="Ayuda de Busqueda Documento de ventas" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Matnr"/>
+                    <PropertyRef Name="Vbeln"/>
+                    <PropertyRef Name="Auart"/>
+                    <PropertyRef Name="Kunnr"/>
+                    <PropertyRef Name="Erdat"/>
+                </Key>
+                <Property Name="Matnr" Type="Edm.String" Nullable="false" MaxLength="18" sap:unicode="false" sap:label="Material" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="Vbeln" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Documento venta" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="Auart" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Cl.doc.ventas" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="Kunnr" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Solicitante" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="Erdat" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Creado el" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="Maktx" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Denominación" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="CanalDis_SH" sap:label="Ayuda de Busqueda Canal de Distribucion" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Vtweg"/>
+                </Key>
+                <Property Name="Vtweg" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Canal distrib." sap:creatable="false" sap:updatable="false"/>
+                <Property Name="Vtext" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Denominación" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="Sector_SH" sap:label="Ayuda de Busqueda Sector" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Spart"/>
+                </Key>
+                <Property Name="Spart" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Sector" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="Vtext" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Denominación" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="DocVtasCont_SH" sap:label="Ayuda de Busqueda Doc de ventas Contacto" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Vbeln"/>
+                    <PropertyRef Name="Ernam"/>
+                    <PropertyRef Name="Erdat"/>
+                    <PropertyRef Name="Ktaar"/>
+                    <PropertyRef Name="Ktabg"/>
+                    <PropertyRef Name="Vkorg"/>
+                    <PropertyRef Name="Vtweg"/>
+                    <PropertyRef Name="Spart"/>
+                    <PropertyRef Name="Vkbur"/>
+                    <PropertyRef Name="Vkgrp"/>
+                    <PropertyRef Name="Ktagr"/>
+                    <PropertyRef Name="Ktast"/>
+                    <PropertyRef Name="Ktaer"/>
+                    <PropertyRef Name="Ktaeb"/>
+                    <PropertyRef Name="Ktext"/>
+                    <PropertyRef Name="Kunnr"/>
+                    <PropertyRef Name="Kunde"/>
+                    <PropertyRef Name="Parvw"/>
+                </Key>
+                <Property Name="Vbeln" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Doc.comercial" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="Ernam" Type="Edm.String" Nullable="false" MaxLength="12" sap:unicode="false" sap:label="Creado por" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="Erdat" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Creado el" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="Ktaar" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Clase contacto" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Ktabg" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Inicio contacto" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="Vkorg" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Organiz.ventas" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="Vtweg" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Canal distrib." sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="Spart" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Sector" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="Vkbur" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Oficina ventas" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="Vkgrp" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Gr.vendedores" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="Ktagr" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Notivo contacto" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="Ktast" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Status contacto" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="Ktaer" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Result.contacto" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="Ktaeb" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="JustificResult" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="Ktext" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Comentario" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="Kunnr" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Interlocutor" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="Kunde" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Interlocutor" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="Parvw" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Func.interloc." sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+            </EntityType>
+            <EntityType Name="HTvbur" sap:label="Ayuda de Busqueda Oficina de Ventas" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Vkbur"/>
+                </Key>
+                <Property Name="Vkbur" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Oficina ventas" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="Bezei" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Denominación" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="HTvkgr" sap:label="Ayuda de Busqueda Grupo de Vendedores" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Vkgrp"/>
+                </Key>
+                <Property Name="Vkgrp" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Gr.vendedores" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="Bezei" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Denominación" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="HKtaar" sap:label="Ayuda de Busqueda Clase de contacto" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Ktaar"/>
+                </Key>
+                <Property Name="Ktaar" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Clase contacto" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="Vtext" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Denominación" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="Debia" sap:label="Ayuda de Busqueda Deudores Generales" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Kunnr"/>
+                </Key>
+                <Property Name="Sortl" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Conc.búsq." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Land1" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="País" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Pstlz" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Código postal" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Mcod3" Type="Edm.String" Nullable="false" MaxLength="25" sap:unicode="false" sap:label="Población" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Mcod1" Type="Edm.String" Nullable="false" MaxLength="25" sap:unicode="false" sap:label="Nombre" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Kunnr" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Cliente" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="Loevm" Type="Edm.Boolean" Nullable="false" sap:unicode="false" sap:label="Pet.borrado" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="VknkContact" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Kunnr"/>
+                    <PropertyRef Name="Lifnr"/>
+                    <PropertyRef Name="Parnr"/>
+                </Key>
+                <Property Name="Sortl" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Conc.búsq." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Kunnr" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Cliente" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="Lifnr" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Acreedor" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="NameLast" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Apellido" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="NameFirst" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Nombre pila" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Pafkt" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Función" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Parnr" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Pers.contacto" sap:creatable="false" sap:updatable="false"/>
+            </EntityType>
+            <EntityType Name="Premj" sap:label="Ayuda Busqueda Empleado/Representante de ventas" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Pernr"/>
+                </Key>
+                <Property Name="Pernr" Type="Edm.String" Nullable="false" MaxLength="8" sap:unicode="false" sap:label="Nº personal" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="Vorna" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Nombre" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Nachn" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Apellido" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Name2" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Apellid.soltera" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Titel" Type="Edm.String" Nullable="false" MaxLength="15" sap:unicode="false" sap:label="Título" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Gbdat" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Fecha nacim." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Begda" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Válido de" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Endda" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Válido a" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="HTvc2" sap:label="Ayuda de Busqueda Motivo Contacto" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Ktagr"/>
+                </Key>
+                <Property Name="Ktagr" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Notivo contacto" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="Vtext" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Denominación" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="HTtvc3" sap:label="Ayuda de Busqueda Estatus de contacto" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Ktast"/>
+                </Key>
+                <Property Name="Ktast" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Status contacto" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="Vtext" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Denominación" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="HTvc1" sap:label="Ayuda de Busqueda Resultado Contacto" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Ktaer"/>
+                </Key>
+                <Property Name="Ktaer" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Result.contacto" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="Vtext" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Denominación" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="HTvc4" sap:label="Ayuda de Busqueda Justificacion resultado" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Ktaeb"/>
+                </Key>
+                <Property Name="Ktaeb" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="JustificResult" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="Vtext" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Denominación" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="F4Vbrk" sap:label="Ayuda de Busqueda Nro de Factura" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Vbeln"/>
+                </Key>
+                <Property Name="Vbeln" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Doc.comercial" sap:creatable="false" sap:updatable="false"/>
+            </EntityType>
+            <EntityType Name="HTvfk" sap:label="Ayuda de Busqueda Clase de Factura" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Fkart"/>
+                </Key>
+                <Property Name="Fkart" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Clase factura" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="Vtext" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Denominación" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="Mat0m" sap:label="Ayuda de Busqueda Texto breve material" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Matnr"/>
+                </Key>
+                <Property Name="Maktg" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Denominación" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Spras" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Idioma" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Matnr" Type="Edm.String" Nullable="false" MaxLength="18" sap:unicode="false" sap:label="Material" sap:creatable="false" sap:updatable="false"/>
+            </EntityType>
+            <EntityType Name="DocComercial_SH" sap:label="Ayuda de Busqueda VF04 ,VF01" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Vbeln"/>
+                </Key>
+                <Property Name="Vbeln" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Doc.comercial" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="Fktyp" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Tipo factura" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="Fkart" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Clase factura" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="Vkorg" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Organiz.ventas" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="Kunnr" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Solicitante" sap:creatable="false" sap:updatable="false"/>
+            </EntityType>
+            <EntityType Name="VF01" sap:label="Crear Factura VF01" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="RefDoc"/>
+                </Key>
+                <Property Name="Salesorg" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Organiz.ventas" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="DistrChan" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Canal distrib." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Division" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Sector" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Ordbilltyp" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Cl.factura ped." sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="BillDate" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Fecha factura" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="SoldTo" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Solicitante" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="PriceDate" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Fecha de precio" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Plant" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Centro" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Payer" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Pagador" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="RefDoc" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Doc.modelo" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="Material" Type="Edm.String" Nullable="false" MaxLength="18" sap:unicode="false" sap:label="Material" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="RefItem" Type="Edm.String" Nullable="false" MaxLength="6" sap:unicode="false" sap:label="Posición modelo" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="DocNumber" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Documento venta" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ItmNumber" Type="Edm.String" Nullable="false" MaxLength="6" sap:unicode="false" sap:label="Posición" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="RefDocCa" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Tipo-docum-ant" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityContainer Name="Z_OD_FIORI_SD_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
+                <EntitySet Name="OrgSales_SHSet" EntityType="Z_OD_FIORI_SD_SRV.OrgSales_SH" sap:label="Ayuda de Busqueda Org de Ventas" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="FBL5nSet" EntityType="Z_OD_FIORI_SD_SRV.FBL5n" sap:label="Listado de partidas abiertas deudores FBL5n" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="VC01nSet" EntityType="Z_OD_FIORI_SD_SRV.VC01n" sap:label="Contaco VC01n" sap:deletable="false" sap:searchable="true" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="VC05Set" EntityType="Z_OD_FIORI_SD_SRV.VC05" sap:label="Monitor de Ventas (VC05)-Obsoleto en S4HANA" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1"/>
+                <EntitySet Name="VF05NSet" EntityType="Z_OD_FIORI_SD_SRV.VF05N" sap:label="Lista de Fascturas" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1"/>
+                <EntitySet Name="VA05Set" EntityType="Z_OD_FIORI_SD_SRV.VA05" sap:label="Lista de Pedidos" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1"/>
+                <EntitySet Name="DocVtas_SHSet" EntityType="Z_OD_FIORI_SD_SRV.DocVtas_SH" sap:label="Ayuda de Busqueda Documento de ventas" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="CanalDis_SHSet" EntityType="Z_OD_FIORI_SD_SRV.CanalDis_SH" sap:label="Ayuda de Busqueda Canal de Distribucion" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="Sector_SHSet" EntityType="Z_OD_FIORI_SD_SRV.Sector_SH" sap:label="Ayuda de Busqueda Sector" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="DocVtasCont_SHSet" EntityType="Z_OD_FIORI_SD_SRV.DocVtasCont_SH" sap:label="Ayuda de Busqueda Doc de ventas Contacto" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="HTvburSet" EntityType="Z_OD_FIORI_SD_SRV.HTvbur" sap:label="Ayuda de Busqueda Oficina de ventas" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="HTvkgrSet" EntityType="Z_OD_FIORI_SD_SRV.HTvkgr" sap:label="Ayuda de Busqueda Grupo de Vendedores" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="HKtaarSet" EntityType="Z_OD_FIORI_SD_SRV.HKtaar" sap:label="Ayuda de Busqueda Clase de contacto" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="DebiaSet" EntityType="Z_OD_FIORI_SD_SRV.Debia" sap:label="Ayuda de Busqueda Dedudores Generales" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="VknkContactSet" EntityType="Z_OD_FIORI_SD_SRV.VknkContact" sap:label="Ayuda de Busquedad Interlocutor" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="PremjSet" EntityType="Z_OD_FIORI_SD_SRV.Premj" sap:label="Ayuda Busqueda Empleado/Representante de ventas" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="HTvc2Set" EntityType="Z_OD_FIORI_SD_SRV.HTvc2" sap:label="Ayuda de Busqueda Motivo Contacto" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="HTtvc3Set" EntityType="Z_OD_FIORI_SD_SRV.HTtvc3" sap:label="Ayuda de Busqueda Estatus de contacto" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="HTvc1Set" EntityType="Z_OD_FIORI_SD_SRV.HTvc1" sap:label="Ayuda de Busqueda Resultado Contacto" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="HTvc4Set" EntityType="Z_OD_FIORI_SD_SRV.HTvc4" sap:label="Ayuda de Busqueda Justificacion resultado" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="F4VbrkSet" EntityType="Z_OD_FIORI_SD_SRV.F4Vbrk" sap:label="Ayuda de Busqueda Nro de Factura" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="HTvfkSet" EntityType="Z_OD_FIORI_SD_SRV.HTvfk" sap:label="Ayuda de Busqueda Clase de Factura" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="Mat0mSet" EntityType="Z_OD_FIORI_SD_SRV.Mat0m" sap:label="Ayuda Busqueda Material texto Breve" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="DocComercial_SHSet" EntityType="Z_OD_FIORI_SD_SRV.DocComercial_SH" sap:label="Ayuda de Busqueda VF04 ,VF01" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="VF01Set" EntityType="Z_OD_FIORI_SD_SRV.VF01" sap:label="Crear Factura VF01" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:pageable="false" sap:content-version="1"/>
+            </EntityContainer>
+            <atom:link rel="self" href="http://ws2016fiodev.alimentoskiri.local:8000/sap/opu/odata/sap/Z_OD_FIORI_SD_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+            <atom:link rel="latest-version" href="http://ws2016fiodev.alimentoskiri.local:8000/sap/opu/odata/sap/Z_OD_FIORI_SD_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

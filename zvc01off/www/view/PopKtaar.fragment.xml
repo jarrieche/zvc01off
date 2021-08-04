@@ -1,0 +1,19 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<SelectDialog
+		title="Clase de Contacto"
+		class="sapUiPopupWithPadding"
+		items="{data>/HKtaar}"
+		search="busKtaar"
+		liveChange="busKtaar"
+		confirm="busKtaarClose"
+		cancel="busKtaarClose">
+		<StandardListItem
+			iconDensityAware="false"
+			iconInset="false"			
+			title="{data>Ktaar}"
+			info="{data>Vtext}"			
+			type="Active" />
+	</SelectDialog>
+</core:FragmentDefinition>
