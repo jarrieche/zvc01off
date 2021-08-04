@@ -19,7 +19,29 @@
           "odataVersion": "2.0",
           "localUri": "localService/metadata.xml"
         }
-      }
+      },
+      "invoiceRemote": {
+				"uri": "https://services.odata.org/V2/Northwind/Northwind.svc/",
+				"type": "OData",
+				"settings": {
+					"odataVersion": "2.0"
+				}
+			},
+			"invoiceOdata": {
+				"uri": "/sap/opu/odata/sap/Z_OD_FIORI_SD_SRV/VC01nSet",
+				"type": "OData",
+				"settings": {
+					"odataVersion": "2.0"
+				}
+			},
+			"JosueModel": {
+				"uri": "/sap/opu/odata/sap/Z_OD_FIORI_SD_SRV/",
+				"type": "OData",
+				"settings": {
+					"odataVersion": "2.0"
+				}
+			}
+
 		}
   },
   "sap.ui": {
@@ -68,6 +90,20 @@
       },
 			"": {
 				"dataSource": "mainService",
+				"preload": true
+			},
+      "data": {
+				"type": "sap.ui.model.json.JSONModel",
+				"uri": "model/data.json"
+			},
+			"invoice": {
+				"dataSource": "invoiceRemote"
+			},
+			"invoiceOdata": {
+				"dataSource": "invoiceOdata"
+			},
+			"modeloNoGral": {
+				"dataSource": "JosueModel",
 				"preload": true
 			}
     },

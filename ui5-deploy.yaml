@@ -1,0 +1,23 @@
+# yaml-language-server: $schema=https://sap.github.io/ui5-tooling/schema/ui5.yaml.json
+
+specVersion: '2.4'
+metadata:
+  name: 'zvc01off'
+type: application
+builder:
+  resources:
+    excludes:
+      - /test/**
+      - /localService/**
+  customTasks:
+    - name: deploy-to-abap
+      afterTask: generateCachebusterInfo
+      configuration:
+        target:
+          url: http://ws2016fiodev.alimentoskiri.local:8000/sap/opu/odata/sap/Z_OD_FIORI_SD_SRV/
+          client: "100"
+        app:
+          name: ZVC01OFF
+          description: zvc01_off
+          package: ZFIORI_F_CORE_SD
+          transport: FIDK900055

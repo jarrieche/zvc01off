@@ -1,0 +1,19 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<SelectDialog
+		title="Organizacion de Ventas"
+		class="sapUiPopupWithPadding"
+		items="{data>/OrgSales}"
+		search="_handleValueHelpSearchCepa"
+		liveChange="_handleValueHelpSearchCepa"
+		confirm="_handleValueHelpCloseCepa"
+		cancel="_handleValueHelpCloseCepa">
+		<StandardListItem
+			iconDensityAware="false"
+			iconInset="false"			
+			title="{data>Vkorg}"	
+			info="{data>Vtext}"		
+			type="Active" />
+	</SelectDialog>
+</core:FragmentDefinition>
