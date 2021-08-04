@@ -40,6 +40,7 @@
 					<Button type="Accept" press="guardar" text="Guardar" />
 					<Button type="Accept" press="clear" text="Limpiar Campos" />
 					<Button type="Accept" press="onEnviar" text="Enviar a SAP" />
+					<Button type="Accept" press="onEnviar2" text="Enviar a SAP2" />
 					</content>
 				</Page>
 			</pages>
