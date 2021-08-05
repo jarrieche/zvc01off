@@ -1,6 +1,6 @@
 sap.ui.define([
 	"sap/ui/core/mvc/Controller",
-    "sap/m/MessageToast",	
+	"sap/m/MessageToast",
 	"sap/m/MessageBox",
 	"com/vc01/off/zvc01off/libs/moment"
 ],
@@ -19,13 +19,13 @@ sap.ui.define([
 				var thes = this;
 				var oModelData = this.getView().getModel("data");
 				var urlvbeln = "/sap/opu/odata/sap/Z_OD_FIORI_SD_SRV/DocVtasCont_SHSet";
-	
+
 				$.ajax({
 					url: urlvbeln,
 					type: "GET",
 					dataType: "json",
 					contentType: "application/json; charset=utf-8",
-	
+
 					success: function (data) {
 						oModelData.setProperty("/DocVtasCont", data.d.results);
 						var local = data.d.results;
@@ -37,16 +37,16 @@ sap.ui.define([
 						reject(error);
 					}
 				});
-	
-	
+
+
 				var urlvkorg = "/sap/opu/odata/sap/Z_OD_FIORI_SD_SRV/OrgSales_SHSet";
-	
+
 				$.ajax({
 					url: urlvkorg,
 					type: "GET",
 					dataType: "json",
 					contentType: "application/json; charset=utf-8",
-	
+
 					success: function (data) {
 						oModelData.setProperty("/OrgSales", data.d.results);
 						var local = data.d.results;
@@ -59,13 +59,13 @@ sap.ui.define([
 					}
 				});
 				var urlvtweg = "/sap/opu/odata/sap/Z_OD_FIORI_SD_SRV/CanalDis_SHSet";
-	
+
 				$.ajax({
 					url: urlvtweg,
 					type: "GET",
 					dataType: "json",
 					contentType: "application/json; charset=utf-8",
-	
+
 					success: function (data) {
 						oModelData.setProperty("/CanalDis", data.d.results);
 						var local = data.d.results;
@@ -77,15 +77,15 @@ sap.ui.define([
 						reject(error);
 					}
 				});
-	
+
 				var urlspart = "/sap/opu/odata/sap/Z_OD_FIORI_SD_SRV/Sector_SHSet";
-	
+
 				$.ajax({
 					url: urlspart,
 					type: "GET",
 					dataType: "json",
 					contentType: "application/json; charset=utf-8",
-	
+
 					success: function (data) {
 						oModelData.setProperty("/Sector", data.d.results);
 						var local = data.d.results;
@@ -97,15 +97,15 @@ sap.ui.define([
 						reject(error);
 					}
 				});
-	
+
 				var urlktaar = "/sap/opu/odata/sap/Z_OD_FIORI_SD_SRV/HKtaarSet";
-	
+
 				$.ajax({
 					url: urlktaar,
 					type: "GET",
 					dataType: "json",
 					contentType: "application/json; charset=utf-8",
-	
+
 					success: function (data) {
 						oModelData.setProperty("/HKtaar", data.d.results);
 						var local = data.d.results;
@@ -118,13 +118,13 @@ sap.ui.define([
 					}
 				});
 				var urlVkbur = "/sap/opu/odata/sap/Z_OD_FIORI_SD_SRV/HTvburSet";
-	
+
 				$.ajax({
 					url: urlVkbur,
 					type: "GET",
 					dataType: "json",
 					contentType: "application/json; charset=utf-8",
-	
+
 					success: function (data) {
 						oModelData.setProperty("/HTvbur", data.d.results);
 						var local = data.d.results;
@@ -137,13 +137,13 @@ sap.ui.define([
 					}
 				});
 				var urlVkgrp = "/sap/opu/odata/sap/Z_OD_FIORI_SD_SRV/HTvkgrSet";
-	
+
 				$.ajax({
 					url: urlVkgrp,
 					type: "GET",
 					dataType: "json",
 					contentType: "application/json; charset=utf-8",
-	
+
 					success: function (data) {
 						oModelData.setProperty("/HTvkgr", data.d.results);
 						var local = data.d.results;
@@ -161,6 +161,20 @@ sap.ui.define([
 				this.getView().byId("vbeln").setValue('');
 				this.getView().byId("vtweg").setValue('');
 				this.getView().byId("spart").setValue('');
+				this.getView().byId("vbeln").setValue('');
+				this.getView().byId("vtweg").setValue('');
+				this.getView().byId("spart").setValue('');
+				this.getView().byId("Ktabg").setValue('');
+				this.getView().byId("Ktaen").setValue('');
+				this.getView().byId("Ktext").setValue('');
+				this.getView().byId("Ktaar").setValue('');
+				
+				// var Vkbur = this.getView().byId('Vkbur').getValue();
+				// var Vkgrp = this.getView().byId('Vkgrp').getValue();
+				// var ktabgDate = moment(ktabg).format('YYYY-MM-DD');
+				// var KtabtTime = moment(ktabg).format('HH:mm:ss');
+				// var KtaenDate = moment(Ktaen).format('YYYY-MM-DD');
+				// var KtaenTime = moment(Ktaen).format('HH:mm:ss');
 			},
 			_posSapAJAX: function (aData) {
 				var that = this;
@@ -199,7 +213,7 @@ sap.ui.define([
 								fnResolve(oResponse);
 							},
 							error: function (oError) {
-	
+
 								fnReject(new Error(oError.message));
 							}
 						});
@@ -228,7 +242,7 @@ sap.ui.define([
 			},
 			onEnviar: function () {
 				var that = this;
-	
+
 				var modeloNoGral = that.getView().getModel("modeloNoGral");
 				////console.log("modeloNoGral", modeloNoGral);
 				var modelo = "modeloNoGral";
@@ -236,32 +250,49 @@ sap.ui.define([
 				/*that._readOdataV2(modelo, metodo).then(function (dataRecibida) {
 					//console.log("dataRecibidaV2--> ",dataRecibida)
 				});*/
-	
-				var CreatedModel = that.getView().getModel("CreatedModel");
-				/*//console.log("CreatedModel", CreatedModel);
-				//console.log("HARDCODE CreatedModel", CreatedModel.oData);
-				//console.log("kam1 CreatedModel", CreatedModel.getData());*/
-				var vc01 = CreatedModel.getData();
+                arrayPedidos = JSON.parse(localStorage.getItem("Pedidos"));
+				//=== comparacyon
+				//= asygnay
+				if(arrayPedidos.length === 0){
+					MessageBox.error(message, {
+						icon: MessageBox.Icon.ERROR,
+						title: "No hay actividades por enviar"
+					});
+					return;
+				}
+				// var CreatedModel = that.oView.getModel("CreatedModel");
+				// CreatedModel.setData(arrayPedidos);
+				// //console.log("CreatedModel", CreatedModel);
+				// console.log("HARDCODE CreatedModel", CreatedModel.oData);
+				// //console.log("kam1 CreatedModel", CreatedModel.getData());
+				// var vc01 = CreatedModel.getData();
+				// debugger;
 				var url = "/sap/opu/odata/sap/Z_OD_FIORI_SD_SRV/VC01nSet";
 				//var ZFIORI_SRV = new sap.ui.model.odata.ODataModel(url, true, "ABCORECONS4", "Core2021*");
 				var ZFIORI_SRV = new sap.ui.model.odata.ODataModel(url, true);
 				//cuando en el backend se pueda env lote bacj maxivo
 				//COND(HAY CONEXN){}ELSE{EXPORTAR ARCHO OFFLE}
-				that._posSap(vc01).then(function (dataRecibidaCreacion) {
+				debugger;
+				that._posSap(JSON.stringify(arrayPedidos)).then(function (dataRecibidaCreacion) {
 					//console.log("dataRecibida-POST--> ", dataRecibidaCreacion)
 					var sapMessage = JSON.parse(dataRecibidaCreacion.headers["sap-message"]);
 					let message = sapMessage.message;
 					let severity = sapMessage.severity;
+					localStorage.removeItem("Pedidos");
 					//console.log("sapMessage", sapMessage)
 					//console.log("message", message)
 					//console.log("severity", severity)
-						  MessageBox.error(message, {
-								 icon: MessageBox.Icon.ERROR,
-								 title: "Control Mensajes"
-							 });
+					MessageBox.success(message, {
+						icon: MessageBox.Icon.success,
+						title: "Syncro correct"
+					});
+				}).catch(function(error){
+                    MessageBox.error(error, {
+						icon: MessageBox.Icon.error,
+						title: "Syncro Error"
+					}); 
 				});
-	
-	
+                
 			},
 			// ->objetmatchet var Formulars = new Array(); 
 			guardar: function (oEvent) {
@@ -303,15 +334,20 @@ sap.ui.define([
 					'Percto': '',
 					'Respto': ''
 				};
+				//arrayPedidos.push(array);				
+				if (localStorage.getItem('Pedidos') !== undefined && localStorage.getItem('Pedidos')) {
+					arrayPedidos = JSON.parse(localStorage.getItem("Pedidos"));
+				}
 				arrayPedidos.push(array);
-				console.log("Array:",arrayPedidos);
-				var adataJsonModel = new sap.ui.model.json.JSONModel(array);
-				////console.log("adataJsonModel:", adataJsonModel);
-				
-				that.getView().setModel(adataJsonModel, "CreatedModel");
+				localStorage.setItem("Pedidos", JSON.stringify(arrayPedidos));
+				// console.log("Array:",arrayPedidos);
+				// var adataJsonModel = new sap.ui.model.json.JSONModel(array);
+				// ////console.log("adataJsonModel:", adataJsonModel);
+
+				// that.getView().setModel(adataJsonModel, "CreatedModel");
 				//array push ARRAY 
-	
-	
+
+
 				/*var data = this.getView().getModel('data');
 				if (data.getProperty('/vc01') === undefined) {
 					data.setProperty('/vc01', []);
@@ -377,7 +413,7 @@ sap.ui.define([
 			},
 			getBukrs: function (oEvent) {
 				var sInputValue2 = oEvent.getSource().getValue();
-	
+
 				this.inputId = oEvent.getSource().getId();
 				// create value help dialog
 				if (!this._valueHelpDialogCepa) {
@@ -391,13 +427,13 @@ sap.ui.define([
 					this._valueHelpDialogCepa.setModel(this.getView().getModel('data').getProperty('/Vkorg'));
 					this.getView().addDependent(this._valueHelpDialogCepa);
 				}
-	
-	
+
+
 				this._valueHelpDialogCepa.open();
 			},
 			getVbeln: function (oEvent) {
 				var sInputValue2 = oEvent.getSource().getValue();
-	
+
 				this.inputId = oEvent.getSource().getId();
 				// create value help dialog
 				if (!this._valueBusVbeln) {
@@ -411,13 +447,13 @@ sap.ui.define([
 					this._valueBusVbeln.setModel(this.getView().getModel('data').getProperty('/Vbeln'));
 					this.getView().addDependent(this._valueBusVbeln);
 				}
-	
-	
+
+
 				this._valueBusVbeln.open();
 			},
 			getVtweg: function (oEvent) {
 				var sInputValue2 = oEvent.getSource().getValue();
-	
+
 				this.inputId = oEvent.getSource().getId();
 				// create value help dialog
 				if (!this._valueBusVtweg) {
@@ -431,13 +467,13 @@ sap.ui.define([
 					this._valueBusVtweg.setModel(this.getView().getModel('data').getProperty('/Vtweg'));
 					this.getView().addDependent(this._valueBusVtweg);
 				}
-	
-	
+
+
 				this._valueBusVtweg.open();
 			},
 			getSpart: function (oEvent) {
 				var sInputValue2 = oEvent.getSource().getValue();
-	
+
 				this.inputId = oEvent.getSource().getId();
 				// create value help dialog
 				if (!this._valueBusSpart) {
@@ -451,13 +487,13 @@ sap.ui.define([
 					this._valueBusSpart.setModel(this.getView().getModel('data').getProperty('/Spart'));
 					this.getView().addDependent(this._valueBusSpart);
 				}
-	
-	
+
+
 				this._valueBusSpart.open();
 			},
 			getKtaar: function (oEvent) {
 				var sInputValue2 = oEvent.getSource().getValue();
-	
+
 				this.inputId = oEvent.getSource().getId();
 				// create value help dialog
 				if (!this._valueBusKtaar) {
@@ -471,13 +507,13 @@ sap.ui.define([
 					this._valueBusKtaar.setModel(this.getView().getModel('data').getProperty('/Ktaar'));
 					this.getView().addDependent(this._valueBusKtaar);
 				}
-	
-	
+
+
 				this._valueBusKtaar.open();
 			},
 			getVkbur: function (oEvent) {
 				var sInputValue2 = oEvent.getSource().getValue();
-	
+
 				this.inputId = oEvent.getSource().getId();
 				// create value help dialog
 				if (!this._valueBusVkbur) {
@@ -491,13 +527,13 @@ sap.ui.define([
 					this._valueBusVkbur.setModel(this.getView().getModel('data').getProperty('/Vkbur'));
 					this.getView().addDependent(this._valueBusVkbur);
 				}
-	
-	
+
+
 				this._valueBusVkbur.open();
 			},
 			getVkgrp: function (oEvent) {
 				var sInputValue2 = oEvent.getSource().getValue();
-	
+
 				this.inputId = oEvent.getSource().getId();
 				// create value help dialog
 				if (!this._valueBusVkgrp) {
@@ -511,8 +547,8 @@ sap.ui.define([
 					this._valueBusVkgrp.setModel(this.getView().getModel('data').getProperty('/Vkgrp'));
 					this.getView().addDependent(this._valueBusVkgrp);
 				}
-	
-	
+
+
 				this._valueBusVkgrp.open();
 			},
 			//env sap
@@ -640,9 +676,9 @@ sap.ui.define([
 				evt.getSource().getBinding("items").filter([]);
 			},
 			getRouter: function () {
-	
+
 				return sap.ui.core.UIComponent.getRouterFor(this);
-	
+
 			}
 		});
 	});
