@@ -207,6 +207,7 @@ sap.ui.define([
 				return new Promise(function (fnResolve, fnReject) {
 					that.getView().getModel("modeloNoGral").create("/VC01nSet", aData,
 						{
+							parameters:{ groupId:"batchCreate"},
 							success: function (oData, oResponse) {
 								////console.log("oData",oData)
 								////console.log("oResponse",oResponse)
@@ -243,7 +244,7 @@ sap.ui.define([
 			onEnviar: function () {
 				var that = this;
 
-				var modeloNoGral = that.getView().getModel("modeloNoGral");
+				var modeloNoGral = that.oView.getModel("modeloNoGral");
 				////console.log("modeloNoGral", modeloNoGral);
 				var modelo = "modeloNoGral";
 				var metodo = "VC01nSet";
@@ -260,19 +261,30 @@ sap.ui.define([
 					});
 					return;
 				}
-				// var CreatedModel = that.oView.getModel("CreatedModel");
-				// CreatedModel.setData(arrayPedidos);
-				// //console.log("CreatedModel", CreatedModel);
-				// console.log("HARDCODE CreatedModel", CreatedModel.oData);
-				// //console.log("kam1 CreatedModel", CreatedModel.getData());
-				// var vc01 = CreatedModel.getData();
-				// debugger;
-				var url = "/sap/opu/odata/sap/Z_OD_FIORI_SD_SRV/VC01nSet";
+				//modeloNoGral.setData([]);
+				//var aDeferredGroup = modeloNoGral.getDeferredGroups().push("batchCreate");
+				//modeloNoGral.setDeferredGroups(aDeferredGroup);
+				modeloNoGral.setUseBatch(true);
+				var mParameters = {groupId:"batchCreate"};
+				arrayPedidos.forEach(element => {
+				modeloNoGral.create("/VC01nSet",element, mParameters);
+				});
+
+				modeloNoGral.submitChanges({
+					success: function(data){
+						console.log(data);
+					},
+					error: function(e){
+						console.log(e);
+					}
+				});
+				
+				/* var url = "/sap/opu/odata/sap/Z_OD_FIORI_SD_SRV/VC01nSet";
 				//var ZFIORI_SRV = new sap.ui.model.odata.ODataModel(url, true, "ABCORECONS4", "Core2021*");
 				var ZFIORI_SRV = new sap.ui.model.odata.ODataModel(url, true);
 				//cuando en el backend se pueda env lote bacj maxivo
 				//COND(HAY CONEXN){}ELSE{EXPORTAR ARCHO OFFLE}
-				debugger;
+				//debugger;
 				that._posSap(JSON.stringify(arrayPedidos)).then(function (dataRecibidaCreacion) {
 					//console.log("dataRecibida-POST--> ", dataRecibidaCreacion)
 					var sapMessage = JSON.parse(dataRecibidaCreacion.headers["sap-message"]);
@@ -291,7 +303,7 @@ sap.ui.define([
 						icon: MessageBox.Icon.error,
 						title: "Syncro Error"
 					}); 
-				});
+				}); */
                 
 			},
 			// ->objetmatchet var Formulars = new Array(); 
@@ -340,25 +352,11 @@ sap.ui.define([
 				}
 				arrayPedidos.push(array);
 				localStorage.setItem("Pedidos", JSON.stringify(arrayPedidos));
-				// console.log("Array:",arrayPedidos);
-				// var adataJsonModel = new sap.ui.model.json.JSONModel(array);
-				// ////console.log("adataJsonModel:", adataJsonModel);
-
-				// that.getView().setModel(adataJsonModel, "CreatedModel");
-				//array push ARRAY 
-
-
-				/*var data = this.getView().getModel('data');
-				if (data.getProperty('/vc01') === undefined) {
-					data.setProperty('/vc01', []);
-					data.setProperty('/vc01', array);
-				}
-				else {
-					var contador = data.getProperty('/vc01').length;
-					data.setProperty('/vc01/' + contador, array);
-				}
-				var local = data.getProperty('/vc01');
-				localStorage.setItem('vc01', JSON.stringify(local));*/
+				MessageBox.success("Los datos se han guardado..", {
+					icon: MessageBox.Icon.success,
+					title: "Proceso Exitoso"
+				});
+				
 			},
 			guardarOLD: function () {
 				var vbeln = this.getView().byId('vbeln').getValue();
