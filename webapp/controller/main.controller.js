@@ -9,8 +9,8 @@ sap.ui.define([
 	 */
 	function (Controller, MessageToast, MessageBox, momentjs) {
 		"use strict";
-		var ZFIORI_SRV;
-		var arrayPedidos = new Array();
+		//var ZFIORI_SRV;
+		//var arrayPedidos = new Array();
 		return Controller.extend("com.vc01.off.zvc01off.controller.main", {
 			onInit: function () {
 
@@ -254,16 +254,16 @@ sap.ui.define([
                 arrayPedidos = JSON.parse(localStorage.getItem("Pedidos"));
 				//=== comparacyon
 				//= asygnay
-				if(arrayPedidos.length === 0){
-					MessageBox.error(message, {
+				if(!localStorage.getItem("Pedidos")){
+					MessageBox.error("No hay actividades por enviar", {
 						icon: MessageBox.Icon.ERROR,
-						title: "No hay actividades por enviar"
+						title: "Error"
 					});
 					return;
 				}
 				//modeloNoGral.setData([]);
-				//var aDeferredGroup = modeloNoGral.getDeferredGroups().push("batchCreate");
-				//modeloNoGral.setDeferredGroups(aDeferredGroup);
+				var aDeferredGroup = modeloNoGral.getDeferredGroups().push("batchCreate");
+				modeloNoGral.setDeferredGroups(aDeferredGroup);
 				modeloNoGral.setUseBatch(true);
 				var mParameters = {groupId:"batchCreate"};
 				arrayPedidos.forEach(element => {
@@ -272,42 +272,18 @@ sap.ui.define([
 
 				modeloNoGral.submitChanges({
 					success: function(data){
-						console.log(data);
+						localStorage.removeItem("Pedidos");
+						//console.log(data);
 					},
 					error: function(e){
 						console.log(e);
 					}
 				});
-				
-				/* var url = "/sap/opu/odata/sap/Z_OD_FIORI_SD_SRV/VC01nSet";
-				//var ZFIORI_SRV = new sap.ui.model.odata.ODataModel(url, true, "ABCORECONS4", "Core2021*");
-				var ZFIORI_SRV = new sap.ui.model.odata.ODataModel(url, true);
-				//cuando en el backend se pueda env lote bacj maxivo
-				//COND(HAY CONEXN){}ELSE{EXPORTAR ARCHO OFFLE}
-				//debugger;
-				that._posSap(JSON.stringify(arrayPedidos)).then(function (dataRecibidaCreacion) {
-					//console.log("dataRecibida-POST--> ", dataRecibidaCreacion)
-					var sapMessage = JSON.parse(dataRecibidaCreacion.headers["sap-message"]);
-					let message = sapMessage.message;
-					let severity = sapMessage.severity;
-					localStorage.removeItem("Pedidos");
-					//console.log("sapMessage", sapMessage)
-					//console.log("message", message)
-					//console.log("severity", severity)
-					MessageBox.success(message, {
-						icon: MessageBox.Icon.success,
-						title: "Syncro correct"
-					});
-				}).catch(function(error){
-                    MessageBox.error(error, {
-						icon: MessageBox.Icon.error,
-						title: "Syncro Error"
-					}); 
-				}); */
-                
+							
 			},
 			// ->objetmatchet var Formulars = new Array(); 
 			guardar: function (oEvent) {
+				var arrayPedidos=[];
 				var that = this;
 				var vbeln = this.getView().byId('vbeln').getValue();
 				var vkorg = this.getView().byId('vkorg').getValue();
@@ -354,7 +330,19 @@ sap.ui.define([
 				localStorage.setItem("Pedidos", JSON.stringify(arrayPedidos));
 				MessageBox.success("Los datos se han guardado..", {
 					icon: MessageBox.Icon.success,
-					title: "Proceso Exitoso"
+					title: "Proceso Exitoso",
+					onClose:function(){
+						that.byId("vkorg").setValue("");
+						that.byId("vtweg").setValue("");
+						that.byId("spart").setValue("");
+						that.byId("Ktaar").setValue("");
+						that.byId("Vkbur").setValue("");
+						that.byId("Vkgrp").setValue("");
+						that.byId("vbeln").setValue("");
+						that.byId("Ktext").setValue("");
+						that.byId("Ktabg").setValue("");
+						that.byId("Ktaen").setValue("");
+					}
 				});
 				
 			},
@@ -585,6 +573,20 @@ sap.ui.define([
 				if (oSelectedItem) {
 					var productCepa = this.byId(this.inputId);
 					productCepa.setValue(oSelectedItem.getTitle());
+					var dataModelDoctos = this.getView().getModel("data").oData.DocVtasCont;
+					var docto= dataModelDoctos.filter(e=> e.Vbeln === oSelectedItem.getTitle());
+					var vkorg=this.byId("vkorg");
+					var vtweg=this.byId("vtweg");
+					var spart=this.byId("spart");
+					var Ktaar=this.byId("Ktaar");
+					var Vkbur=this.byId("Vkbur");
+					var Vkgrp=this.byId("Vkgrp");
+					vkorg.setValue(docto[0].Vkorg);
+					vtweg.setValue(docto[0].Vtweg);
+					spart.setValue(docto[0].Spart);
+					Ktaar.setValue(docto[0].Ktaar);
+					Vkbur.setValue(docto[0].Vkbur);
+					Vkgrp.setValue(docto[0].Vkgrp);
 				}
 				evt.getSource().getBinding("items").filter([]);
 			},

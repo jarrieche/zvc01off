@@ -7,23 +7,22 @@
 	<Shell id="shell">
 		<App id="app">
 			<pages>
-				<Page title="{i18n>Crear actividad de ventas}">
-		
+				<Page title="{i18n>Crear actividad de ventas}">		
 					<content>
-					<Label text="Organizacion de Ventas" labelFor="multiInput"/>
-					<Input id="vkorg" showValueHelp="true" valueHelpRequest="getBukrs"/>
 					<Label text="Documento" labelFor="multiInput"/>
-					<Input id="vbeln" showValueHelp="true" valueHelpRequest="getVbeln"/>
+					<Input id="vbeln" showValueHelp="true" valueHelpRequest="getVbeln"/>	
+					<Label text="Organizacion de Ventas" labelFor="multiInput"/>
+					<Input id="vkorg" showValueHelp="true" valueHelpRequest="getBukrs" enabled="false"/>					
 					<Label text="Canal de Distribucion" labelFor="multiInput"/>
-					<Input id="vtweg" showValueHelp="true" valueHelpRequest="getVtweg"/>
+					<Input id="vtweg" showValueHelp="true" valueHelpRequest="getVtweg" enabled="false"/>
 					<Label text="Sector" labelFor="multiInput"/>
-					<Input id="spart" showValueHelp="true" valueHelpRequest="getSpart"/> 
+					<Input id="spart" showValueHelp="true" valueHelpRequest="getSpart" enabled="false"/> 
 					<Label text="Clase de contacto" labelFor="multiInput"/>
-					<Input id="Ktaar" showValueHelp="true" valueHelpRequest="getKtaar"/> 
-					<Label text="Oficina de Ventas" labelFor="multiInput"/>
-					<Input id="Vkbur" showValueHelp="true" valueHelpRequest="getVkbur"/> 
+					<Input id="Ktaar" showValueHelp="true" valueHelpRequest="getKtaar" enabled="false"/> 
+					<Label text="Oficina de Ventas" labelFor="multiInput" />
+					<Input id="Vkbur" showValueHelp="true" valueHelpRequest="getVkbur" enabled="false"/> 
 					<Label text="Grupo de vendedores" labelFor="multiInput"/>
-					<Input id="Vkgrp" showValueHelp="true" valueHelpRequest="getVkgrp"/>
+					<Input id="Vkgrp" showValueHelp="true" valueHelpRequest="getVkgrp" enabled="false"/>
 					<Label text="Descripcion" labelFor="text"/> 
 					 <Input id="Ktext"  />
 					<DateTimePicker
