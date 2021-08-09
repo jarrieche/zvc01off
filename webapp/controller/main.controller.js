@@ -155,6 +155,45 @@ sap.ui.define([
 						reject(error);
 					}
 				});
+				var urlKtagr = "/sap/opu/odata/sap/Z_OD_FIORI_SD_SRV/HTvc2Set";
+
+				$.ajax({
+					url: urlKtagr,
+					type: "GET",
+					dataType: "json",
+					contentType: "application/json; charset=utf-8",
+
+					success: function (data) {
+						oModelData.setProperty("/HTvc2Set", data.d.results);
+						var local = data.d.results;
+						localStorage.setItem('Ktagr', JSON.stringify(local));
+					},
+					error: function (error) {
+						var objectViewModel = that.getModel("objectView");
+						//console.log("/dhola ", error);
+						reject(error);
+					}
+				});
+				//Ktast
+				var urlKtast = "/sap/opu/odata/sap/Z_OD_FIORI_SD_SRV/HTtvc3Set";
+
+				$.ajax({
+					url: urlKtast,
+					type: "GET",
+					dataType: "json",
+					contentType: "application/json; charset=utf-8",
+
+					success: function (data) {
+						oModelData.setProperty("/HTtvc3Set", data.d.results);
+						var local = data.d.results;
+						localStorage.setItem('Ktast', JSON.stringify(local));
+					},
+					error: function (error) {
+						var objectViewModel = that.getModel("objectView");
+						//console.log("/dhola ", error);
+						reject(error);
+					}
+				});	
 			},
 			clear: function () {
 				this.getView().byId("vkorg").setValue('');
@@ -168,13 +207,10 @@ sap.ui.define([
 				this.getView().byId("Ktaen").setValue('');
 				this.getView().byId("Ktext").setValue('');
 				this.getView().byId("Ktaar").setValue('');
+				this.getView().byId("Kunnr").setValue('');
+				this.getView().byId("Ktagr").setValue('');	
+				this.getView().byId("Ktast").setValue('');							
 				
-				// var Vkbur = this.getView().byId('Vkbur').getValue();
-				// var Vkgrp = this.getView().byId('Vkgrp').getValue();
-				// var ktabgDate = moment(ktabg).format('YYYY-MM-DD');
-				// var KtabtTime = moment(ktabg).format('HH:mm:ss');
-				// var KtaenDate = moment(Ktaen).format('YYYY-MM-DD');
-				// var KtaenTime = moment(Ktaen).format('HH:mm:ss');
 			},
 			_posSapAJAX: function (aData) {
 				var that = this;
@@ -243,7 +279,7 @@ sap.ui.define([
 			},
 			onEnviar: function () {
 				var that = this;
-
+                var  arrayPedidos=[];
 				var modeloNoGral = that.oView.getModel("modeloNoGral");
 				////console.log("modeloNoGral", modeloNoGral);
 				var modelo = "modeloNoGral";
@@ -295,6 +331,9 @@ sap.ui.define([
 				var Ktaar = this.getView().byId('Ktaar').getValue();
 				var Vkbur = this.getView().byId('Vkbur').getValue();
 				var Vkgrp = this.getView().byId('Vkgrp').getValue();
+				var Kunnr = this.getView().byId('Kunnr').getValue();
+				var Ktagr = this.getView().byId('Ktagr').getValue();
+				var Ktast = this.getView().byId('Ktast').getValue();
 				var ktabgDate = moment(ktabg).format('YYYY-MM-DD');
 				var KtabtTime = moment(ktabg).format('HH:mm:ss');
 				var KtaenDate = moment(Ktaen).format('YYYY-MM-DD');
@@ -308,12 +347,12 @@ sap.ui.define([
 					'Ktabt': KtabtTime,
 					'Ktext': ktext,
 					'Ktaar': Ktaar,
-					'Ktagr': '',
-					'Kunnr': '',
+					'Ktagr': Ktagr,
+					'Kunnr': Kunnr,
 					'Parvs': '',
 					'Ktaen': KtaenDate,
 					'Ktaet': KtaenTime,
-					'Ktast': '',
+					'Ktast': Ktast,
 					'Ktaer': '',
 					'Ktaeb': '',
 					'Vkbur': Vkbur,
@@ -342,60 +381,54 @@ sap.ui.define([
 						that.byId("Ktext").setValue("");
 						that.byId("Ktabg").setValue("");
 						that.byId("Ktaen").setValue("");
+						that.byId("Kunnr").setValue("");
+						that.byId("Ktagr").setValue("");
+						that.byId("Ktast").setValue("");
 					}
 				});
 				
 			},
-			guardarOLD: function () {
-				var vbeln = this.getView().byId('vbeln').getValue();
-				var vkorg = this.getView().byId('vkorg').getValue();
-				var vtweg = this.getView().byId('vtweg').getValue();
-				var spart = this.getView().byId('spart').getValue();
-				var ktabg = this.getView().byId('Ktabg').getDateValue();
-				var Ktaen = this.getView().byId('Ktaen').getDateValue();
-				var ktext = this.getView().byId('Ktext').getValue();
-				var Ktaar = this.getView().byId('Ktaar').getValue();
-				var Vkbur = this.getView().byId('Vkbur').getValue();
-				var Vkgrp = this.getView().byId('Vkgrp').getValue();
-				var ktabgDate = moment(ktabg).format('YYYY-MM-DD');
-				var KtabtTime = moment(ktabg).format('HH:mm:ss');
-				var KtaenDate = moment(Ktaen).format('YYYY-MM-DD');
-				var KtaenTime = moment(Ktaen).format('HH:mm:ss');
-				var array = {
-					'Vbeln': vbeln,
-					'Vkorg': vkorg,
-					'Vtweg': vtweg,
-					'Spart': spart,
-					'Ktabg': ktabgDate,
-					'Ktabt': KtabtTime,
-					'Ktext': ktext,
-					'Ktaar': Ktaar,
-					'Ktagr': '',
-					'Kunnr': '',
-					'Parvs': '',
-					'Ktaen': KtaenDate,
-					'Ktaet': KtaenTime,
-					'Ktast': '',
-					'Ktaer': '',
-					'Ktaeb': '',
-					'Vkbur': Vkbur,
-					'Vkgrp': Vkgrp,
-					'Soldto': '',
-					'Percto': '',
-					'Respto': ''
-				};
-				//array.push();
-				var data = this.getView().getModel('data');
-				if (data.getProperty('/vc01') === undefined) {
-					data.setProperty('/vc01', []);
-					data.setProperty('/vc01', array);
+			//Ktast
+			getKtast: function (oEvent) {
+				var sInputValue2 = oEvent.getSource().getValue();
+
+				this.inputId = oEvent.getSource().getId();
+				// create value help dialog
+				if (!this._valueBusKtast) {
+					var url = "/sap/opu/odata/sap/Z_OD_FIORI_SD_SRV/VC01nSet";
+					//var ZFIORI_SRV = new sap.ui.model.odata.ODataModel(url, true, "ABCORECONS4", "Core2021*");
+					var ZFIORI_SRV = new sap.ui.model.odata.ODataModel(url, true);
+					this._valueBusKtast = sap.ui.xmlfragment(
+						"com.vc01.off.zvc01off.view.PopKtast",
+						this
+					);
+					this._valueBusKtast.setModel(this.getView().getModel('data').getProperty('/Ktast'));
+					this.getView().addDependent(this._valueBusKtast);
 				}
-				else {
-					var contador = data.getProperty('/vc01').length;
-					data.setProperty('/vc01/' + contador, array);
+
+
+				this._valueBusKtast.open();
+			},
+			//busKtagr
+			getKtagr: function (oEvent) {
+				var sInputValue2 = oEvent.getSource().getValue();
+
+				this.inputId = oEvent.getSource().getId();
+				// create value help dialog
+				if (!this._valueBusKtagr) {
+					var url = "/sap/opu/odata/sap/Z_OD_FIORI_SD_SRV/VC01nSet";
+					//var ZFIORI_SRV = new sap.ui.model.odata.ODataModel(url, true, "ABCORECONS4", "Core2021*");
+					var ZFIORI_SRV = new sap.ui.model.odata.ODataModel(url, true);
+					this._valueBusKtagr = sap.ui.xmlfragment(
+						"com.vc01.off.zvc01off.view.PopKtagr",
+						this
+					);
+					this._valueBusKtagr.setModel(this.getView().getModel('data').getProperty('/Ktagr'));
+					this.getView().addDependent(this._valueBusKtagr);
 				}
-				var local = data.getProperty('/vc01');
-				localStorage.setItem('vc01', JSON.stringify(local));
+
+
+				this._valueBusKtagr.open();
 			},
 			getBukrs: function (oEvent) {
 				var sInputValue2 = oEvent.getSource().getValue();
@@ -542,6 +575,23 @@ sap.ui.define([
 				//console.log('Estoy en env sap');
 			},
 			//fn sap
+			//busqueda Ktast
+			busKtast: function (evt) {
+				var sValue = evt.getParameter("value");
+				var oFilter = new Filter(
+					"Ktast",
+					sap.ui.model.FilterOperator.Contains, sValue
+				);
+				evt.getSource().getBinding("items").filter([oFilter]);
+			},
+			busKtastClose: function (evt) {
+				var oSelectedItem = evt.getParameter("selectedItem");
+				if (oSelectedItem) {
+					var productCepa = this.byId(this.inputId);
+					productCepa.setValue(oSelectedItem.getTitle());
+				}
+				evt.getSource().getBinding("items").filter([]);
+			},
 			//función búsqueda:
 			_handleValueHelpSearchCepa: function (evt) {
 				var sValue = evt.getParameter("value");
@@ -552,6 +602,23 @@ sap.ui.define([
 				evt.getSource().getBinding("items").filter([oFilter]);
 			},
 			_handleValueHelpCloseCepa: function (evt) {
+				var oSelectedItem = evt.getParameter("selectedItem");
+				if (oSelectedItem) {
+					var productCepa = this.byId(this.inputId);
+					productCepa.setValue(oSelectedItem.getTitle());
+				}
+				evt.getSource().getBinding("items").filter([]);
+			},
+			//busqueda Ktagr
+			busKtagr: function (evt) {
+				var sValue = evt.getParameter("value");
+				var oFilter = new Filter(
+					"Ktagr",
+					sap.ui.model.FilterOperator.Contains, sValue
+				);
+				evt.getSource().getBinding("items").filter([oFilter]);
+			},
+			busKtagrClose: function (evt) {
 				var oSelectedItem = evt.getParameter("selectedItem");
 				if (oSelectedItem) {
 					var productCepa = this.byId(this.inputId);
@@ -581,12 +648,14 @@ sap.ui.define([
 					var Ktaar=this.byId("Ktaar");
 					var Vkbur=this.byId("Vkbur");
 					var Vkgrp=this.byId("Vkgrp");
+					var Kunnr=this.byId("Kunnr");
 					vkorg.setValue(docto[0].Vkorg);
 					vtweg.setValue(docto[0].Vtweg);
 					spart.setValue(docto[0].Spart);
 					Ktaar.setValue(docto[0].Ktaar);
 					Vkbur.setValue(docto[0].Vkbur);
 					Vkgrp.setValue(docto[0].Vkgrp);
+					Kunnr.setValue(docto[0].Kunnr);
 				}
 				evt.getSource().getBinding("items").filter([]);
 			},

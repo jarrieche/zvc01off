@@ -1,0 +1,19 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<SelectDialog
+		title="Estatus"
+		class="sapUiPopupWithPadding"
+		items="{data>/HTtvc3Set}"
+		search="busKtast"
+		liveChange="busKtast"
+		confirm="busKtastClose"
+		cancel="busKtastClose">
+		<StandardListItem
+			iconDensityAware="false"
+			iconInset="false"			
+			title="{data>Ktast}"		
+			info="{data>Vtext}"	
+			type="Active" />
+	</SelectDialog>
+</core:FragmentDefinition>

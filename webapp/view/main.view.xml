@@ -7,7 +7,7 @@
 	<Shell id="shell">
 		<App id="app">
 			<pages>
-				<Page title="{i18n>Crear actividad de ventas}">		
+				<Page title="{i18n>Crear Actividad de Ventas}">		
 					<content>
 					<Label text="Documento" labelFor="multiInput"/>
 					<Input id="vbeln" showValueHelp="true" valueHelpRequest="getVbeln"/>	
@@ -23,8 +23,14 @@
 					<Input id="Vkbur" showValueHelp="true" valueHelpRequest="getVkbur" enabled="false"/> 
 					<Label text="Grupo de vendedores" labelFor="multiInput"/>
 					<Input id="Vkgrp" showValueHelp="true" valueHelpRequest="getVkgrp" enabled="false"/>
+					<Label text="Cliente" labelFor="multiInput"/>
+					<Input id="Kunnr" showValueHelp="true" valueHelpRequest="getKunnr" enabled="false"/>
 					<Label text="Descripcion" labelFor="text"/> 
 					 <Input id="Ktext"  />
+					 <Label text="Motivo" labelFor="text"/> 
+					 <Input id="Ktagr" showValueHelp="true" valueHelpRequest="getKtagr" />
+					 <Label text="Estatus" labelFor="text"/> 
+					 <Input id="Ktast" showValueHelp="true" valueHelpRequest="getKtast" />
 					<DateTimePicker
 						id="Ktabg"
 						placeholder="Inicio contacto (fecha - Hora)"

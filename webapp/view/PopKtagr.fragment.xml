@@ -1,0 +1,19 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<SelectDialog
+		title="Motivo Contacto"
+		class="sapUiPopupWithPadding"
+		items="{data>/HTvc2Set}"
+		search="busKtagr"
+		liveChange="busKtagr"
+		confirm="busKtagrClose"
+		cancel="busKtagrClose">
+		<StandardListItem
+			iconDensityAware="false"
+			iconInset="false"			
+			title="{data>Ktagr}"		
+			info="{data>Vtext}"	
+			type="Active" />
+	</SelectDialog>
+</core:FragmentDefinition>

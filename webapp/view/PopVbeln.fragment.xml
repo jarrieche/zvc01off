@@ -13,10 +13,10 @@
 			iconDensityAware="false"
 			iconInset="false"			
 			title="{data>Vbeln}"
-			info="{data>Ernam} - {data>Erdat} - {data>Ktaar} -
-			{data>Ktabg} - {data>Vkorg} - {data>Vtweg} - {data>Spart} - 
-			{data>Vkbur} - {data>Vkgrp} - {data>Ktagr} - {data>Ktast} - 
-			{data>Ktaer} - {data>Ktaeb} - {data>Ktext} - {data>Kunnr} - {data>Kunde} - {data>Parvw}"			
+			info="{data>Ernam} - {data>Erdat} - {data>Vkorg} - {data>Ktext}"						
 			type="Active" />
+			<!-- {data>Ktabg} -  - {data>Vtweg} - {data>Spart} - 
+			{data>Vkbur} - {data>Vkgrp} - {data>Ktagr} - {data>Ktast} - 
+			{data>Ktaer} - {data>Ktaeb} -  - {data>Kunnr} - {data>Kunde} - {data>Parvw}" -->
 	</SelectDialog>
 </core:FragmentDefinition>
